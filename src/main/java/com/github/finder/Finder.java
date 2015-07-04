@@ -27,6 +27,7 @@ public class Finder {
         if(isTarget(dir)){
             list.add(dir.getPath());
         }
+
         if(dir.isDirectory()){
             for(File file: dir.listFiles()){
                 traverse(list, file);
