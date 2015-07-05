@@ -3,8 +3,17 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 public class Main{
+
     public Main(String[] arguments){
-        parseArguments(arguments);
+        Args args = parseArguments(arguments);
+        
+        Finder finder = new Finder(args);
+        for(String base: args){
+            String[] items = finder.find(base);
+            for(String item: items){
+                System.out.println(item);
+            }
+        }
     }
 
     private Args parseArguments(String[] arguments){
@@ -21,3 +30,4 @@ public class Main{
         new Main(args);
     }
 }
+
